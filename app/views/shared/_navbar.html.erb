@@ -1,11 +1,11 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid d-flex bd-highlight">
     <%= link_to "Watchlist", root_path, class: "navbar-brand p-2 flex-grow-1 bd-highlight" %>
-    <%= form_tag lists_path, class: "d-flex me-2 search-nav-tienda", method: :get do %>
+    <%= form_tag movies_path, class: "d-flex me-2 search-nav-tienda", method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class:"form-control",
-          placeholder: "The lord of the rings..." %>
+          placeholder: "Search for movies..." %>
         <%= button_tag(type: "submit", class: "btn my-0 my-sm-0 mr-sm-2") do %>
           <i class="fas fa-search"></i>
         <% end %>

@@ -8,6 +8,8 @@
 
 require 'open-uri'
 require 'json'
+p 'Deleting records...'
+Movie.delete_all
 
 url = 'https://tmdb.lewagon.com/movie/top_rated'
 serialized_url = URI.parse(url).read

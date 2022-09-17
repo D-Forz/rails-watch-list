@@ -6,6 +6,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @bookmark = Bookmark.new
   end
 
   def new
@@ -22,13 +23,16 @@ class ListsController < ApplicationController
   end
 
   def movies
-    list = List.find(params[:id])
-    @movies = list.movies
+    @movies = if params[:query].present?
+                Movie.where('title LIKE ?', "%#{params[:query]}%")
+              else
+                Movie.all
+              end
   end
 
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :image_url)
   end
 end
