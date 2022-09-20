@@ -17,7 +17,7 @@
     <% end %>
   </div>
 
-  <div class="container">
+  <div class="container m-3">
     <%= simple_form_for [@list, @bookmark] do |f| %>
     <%= f.input :comment %>
     <%= f.association :movie, input_html: {data: {controller: 'tom-select'}} %>
@@ -26,7 +26,7 @@
   </div>
 
 
-<hr class="my-5">
+<hr class="my-5 m-3">
   <div class="row">
     <div class="col-12 col-sm-6">
       <h3>Reviews</h3>
@@ -44,7 +44,7 @@
         <hr>
       <% end %>
     </div>
-    <div class="col-12 col-sm-6">
+    <div class="col-12 col-sm-6 mb-3">
       <div class="bg-white rounded p-3">
         <h5>Add your review</h5>
         <%= simple_form_for [@list, @review] do |f| %>
