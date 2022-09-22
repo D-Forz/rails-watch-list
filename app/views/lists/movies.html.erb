@@ -10,7 +10,7 @@
             <p class="card-text"><%= movie.overview %></p>
           </div>
           <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
+            <small class="text-muted">Last updated: <%= distance_of_time_in_words_to_now(movie.created_at) %> ago</small>
           </div>
         </div>
       </div>
