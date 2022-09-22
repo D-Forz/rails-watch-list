@@ -25,7 +25,7 @@ class ListsController < ApplicationController
 
   def movies
     @movies = if params[:query].present?
-                Movie.where('title LIKE ?', "%#{params[:query]}%")
+                Movie.where('lower(title) LIKE ?', "%#{params[:query].downcase}%")
               else
                 Movie.all
               end
