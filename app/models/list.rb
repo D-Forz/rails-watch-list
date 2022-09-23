@@ -6,4 +6,14 @@ class List < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :photo, presence: true
+  validate :upload_is_image
+
+  private
+
+  def upload_is_image
+    return if photo && photo.content_type =~ %r{/^image/(jpeg|pjpeg|png|bmp)$/}
+
+    photo.purge
+    errors.add(:photo, ': This is not a valid photo')
+  end
 end
